@@ -30,9 +30,10 @@ const NotificationWindow = styled.div`
 
 interface JoinProps {
 	setPlayerID: () => void;
+	playSinglePlayer: () => void;
 }
 
-const Join: React.FC<JoinProps> = ({ setPlayerID }) => {
+const Join: React.FC<JoinProps> = ({ setPlayerID, playSinglePlayer }) => {
 	return (
 		<CenteredContainer>
 			<NotificationWindow>
@@ -43,6 +44,13 @@ const Join: React.FC<JoinProps> = ({ setPlayerID }) => {
 					}}
 				>
 					Join
+				</Button>
+				<Button
+				onClick={() => {
+					playSinglePlayer();
+				}}
+				>
+					Play Single Player
 				</Button>
 			</NotificationWindow>
 		</CenteredContainer>

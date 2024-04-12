@@ -66,7 +66,6 @@ class Game {
 				this.startRound(handSize, this.nextPlayer(this.dealerIndex));
 			}
 		}
-
 		return result;
 	}
 
@@ -102,6 +101,10 @@ class Game {
 	}
 	//returns -1 if the bet is invalid or failed, or 1 if the bet was succesfully made
 	makeBet(playerIndex: number, bet: number) {
+		//make sure the player is active player
+		if (playerIndex !== this.activePlayer) {
+			return -1;
+		}
 		if (bet === this.getInvalidBet(playerIndex)) {
 			return -1;
 		}
@@ -266,7 +269,7 @@ class Game {
 			};
 			return returner;
 		}
-		return "Invalid index";
+		return -1;
 	}
 	printState(verbose = false) {
         console.log("***###***###***###***###***###***###***###***###***###***###***###***###***###***###***")
